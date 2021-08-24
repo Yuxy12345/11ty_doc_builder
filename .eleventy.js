@@ -1,6 +1,6 @@
 module.exports = eleventyConfig => {
     // 复制静态文件目录
-    eleventyConfig.addPassthroughCopy("src/static/css");
+    eleventyConfig.addPassthroughCopy("src/static");
     eleventyConfig.addPassthroughCopy("node_modules/bootstrap/dist");
 
     // 定义日期格式化方法
