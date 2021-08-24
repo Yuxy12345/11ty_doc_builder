@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/static/css/md-default.css"/>
+        <link rel="stylesheet" href="/static/css/document.css"/>
+        <script type="javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <title>{{ title }} - {{ projectConfig.projectName }}</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">{{ projectConfig.projectName }}</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarnav" aria-controls="navbarnav" aria-expanded="false" aria-label="toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarnav">
+                    <ul class="navbar-nav">
+                        {% for menu in menus %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ menu.url }}">{{ menu.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-3 side">
+                <h3>所有文档</h3>
+                <div class="list-group">
+                    {%- for page in collections.static -%}
+                    <a href="{{page.url}}" class="list-group-item">{{ page.data.title }}</a>
+                    {%- endfor -%}
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="md-default" style="width: auto">
+                    {{ content | safe }}
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+# node dependencies
+node_modules
+# output directory
+dist/*
+# test pages
+src/pages/*.md
+!src/pages/template.md
